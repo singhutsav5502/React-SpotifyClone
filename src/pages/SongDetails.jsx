@@ -8,10 +8,10 @@ const SongDetails = () => {
     const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { songid } = useParams();
     const { data: songData, isFetching: isFetchignSongDetails } = useGetSongDetailsQuery({ songid });
+    
     // ABOVE API CALL DOESN'T GIVE ANY IMAGE DATA SO USE SEPERATE API CALL
     const { data: songImageData } = useGetSongImageQuery({ songid });
     if (isFetchignSongDetails) return <Loader />;
-    console.log(songImageData);
     // LYRICS HAS A NUMERICAL ATTRIBUTE THAT IS UNIQUE
     // TO FETCH LYRICS FIRST GET THAT ID 
     let lyrId = null;
